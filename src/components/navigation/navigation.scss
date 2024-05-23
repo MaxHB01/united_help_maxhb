@@ -1,0 +1,43 @@
+@use "@styles/variables" as *;
+@use "@styles/typography" as *;
+
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 100dvh;
+    width: $sidebar-width;
+
+    background-color: $color-primary;
+    border-top-right-radius: $border-radius-large;
+    border-bottom-right-radius: $border-radius-large;
+
+    padding: $padding-extra-large $padding-medium;
+
+    &-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: $gap-medium;
+        list-style-type: none;
+    }
+
+    &-item {
+        font-size: 4.5rem;
+        display: flex;
+        align-items: center;
+
+        justify-content: center;
+        color: white;
+        
+        &.active {
+            background-color: $color-primary-3;
+            border-radius: $border-radius-medium;
+            height: 6rem;
+            width: 6rem;
+        }
+    }
+
+}

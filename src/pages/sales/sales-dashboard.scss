@@ -1,0 +1,7 @@
+@use "@styles/variables/layout" as *;
+
+.sales-selector {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-large;
+}

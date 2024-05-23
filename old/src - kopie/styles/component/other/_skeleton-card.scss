@@ -1,0 +1,23 @@
+@use "src/styles/abstract" as *;
+
+$background-color-start: $color-gray;
+$background-color-end: $color-white; // You can adjust this color if needed
+
+.skeleton-card {
+    position: relative;
+    overflow: hidden;
+    animation: skeleton 3s infinite ease-in-out;
+}
+
+@keyframes skeleton {
+    0% {
+        background-color: $background-color-start;
+    }
+    50% {
+        background-color: $background-color-end;
+    }
+    100% {
+        background-color: $background-color-start;
+    }
+}
+

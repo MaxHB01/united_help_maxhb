@@ -1,0 +1,39 @@
+@use "src/styles/abstract" as *;
+
+nav.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    min-height: 100dvh;
+    padding: 3rem 1rem;
+    background-color: $color-primary;
+    border-top-right-radius: 1.2rem;
+    border-bottom-right-radius: 1.2rem;
+
+    .navigation-items {
+        list-style: none;
+    }
+
+    .navigation-item {
+        font-size: 4.5rem;
+        color: white;
+        transition: background-color 0.3s ease;
+        width: 5rem;
+        height: 5rem;
+        padding: 3rem;
+        border-radius: .8rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background-color: $color-primary-60;
+        }
+
+        a {
+            color: currentColor
+        }
+    }
+}

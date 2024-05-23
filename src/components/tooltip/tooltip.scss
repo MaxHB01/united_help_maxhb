@@ -1,0 +1,107 @@
+@use "@styles/variables" as *;
+@use "@styles/typography" as *;
+@use "@styles/animations" as *;
+
+.tooltip {
+    position: relative;
+    $bg-color: $color-blue-black;
+    $before-distance: -.4rem;
+    $before-size: 1.6rem;
+
+    & > *:hover ~ .tooltip-text,
+    &:focus-within &-text {
+        @media (prefers-reduced-motion: reduce) {
+            animation: none;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            animation: moveMessage $animation-fast forwards;
+        }
+    }
+
+    &-text {
+        position: absolute;
+        visibility: hidden;
+
+        background-color: $bg-color;
+        color: $color-white;
+
+        padding: $padding-medium;
+
+        border-radius: $border-radius-small;
+
+        font-family: $font-family-1;
+        font-size: $font-size-base;
+
+        &::before {
+            content: '';
+            position: absolute;
+            
+            background-color: $bg-color;
+            height: $before-size;;
+            width: $before-size;
+            
+            z-index: -1;
+            transform: rotate(45deg) translate(-50%);
+        }
+
+        &.top {
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &::before {
+                top: 80%;
+                left: 50%;
+            }
+        }
+
+        &.right {
+            top: 50%;
+            left: 120%;
+            transform: translateY(-50%);
+
+            &::before {
+                top: 50%;
+                left: 0rem;
+            }
+        }
+
+        &.bottom {
+            top: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &::before {
+                top: 0%;
+                left: 50%;
+
+            }
+        }
+
+        &.left {
+            top: 50%;
+            right: 120%;
+            transform: translateY(-50%);
+
+              &::before {
+                top: 50%;
+                right: -1rem;
+            }
+        }
+    }
+}
+
+@keyframes moveMessage {
+    from {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+}
